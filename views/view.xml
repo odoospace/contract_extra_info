@@ -10,8 +10,26 @@
                 <field name="partner_id" position="after">
                     <field name="installation_partner_id" context="{'default_parent_id':partner_id, 'default_customer':False}" options="{'no_quick_create': True, 'no_create_edit': False}"/>
                 </field>
+
+                <!--
+                    va bene qua?
+                -->
+                <xpath expr="//page[@string='Contract Information']" position="after">
+                  <page name="Sample" string="Custom page">
+                    <group>
+                      <field name="notary_name"/>
+                    </group>
+                  </page>
+                </xpath>
+
             </field>
         </record>
+
+
+
+
+
+
 
     </data>
 </openerp>
