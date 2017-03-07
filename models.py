@@ -17,7 +17,7 @@ class AccountAnalyticAccount_extra_info(models.Model):
     # ante el Notario de       http://www.emiliopolis.net/es/int/geo/nombres_es.htm
     notary_place        = fields.Char(string='Place',size=60)
     #Nombre Notario 
-    notary_name         = fields.Char(string='Name', size=50)
+    notary_name         = fields.Char(string='Name of notary', size=50)
     #Nº Protocolo       
     notary_protocol     = fields.Char(string='Protocol',size=40)
     #Fecha Otorgamiento

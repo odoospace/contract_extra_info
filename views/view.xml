@@ -15,9 +15,27 @@
                     va bene qua?
                 -->
                 <xpath expr="//page[@string='Contract Information']" position="after">
-                  <page name="Sample" string="Custom page">
+                  <page name="Sample" string="Contract Extra informations">
+                    
                     <group>
+                        <field name="signer_partner_id" context="{'default_parent_id':partner_id, 'default_customer':False}" options="{'no_quick_create': True, 'no_create_edit': False}"/>
+                        <div>
+                            <small>
+                                Warning: insert the name of the signer of the contract.
+                            </small>
+                        </div>
+
+
+                    </group>
+                        
+                    <group>
+
+                      <field name="notary_place"/>
                       <field name="notary_name"/>
+                      <field name="notary_protocol"/>
+                      <field name="notary_date"/>
+
+
                     </group>
                   </page>
                 </xpath>
