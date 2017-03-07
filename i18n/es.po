@@ -1,0 +1,104 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* contract_extra_info
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-07 10:50+0100\n"
+"PO-Revision-Date: 2017-03-07 11:05+0100\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"Last-Translator: \n"
+"Language: es\n"
+
+#. module: contract_extra_info
+#: model:ir.model,name:contract_extra_info.model_account_analytic_account
+msgid "Analytic Account"
+msgstr "Contratos de servicios"
+
+#. module: contract_extra_info
+#: view:account.analytic.account:contract_extra_info.view_account_analytic_account_form
+msgid "Contract Extra informations"
+msgstr "Informaciones extra para el contrato"
+
+#. module: contract_extra_info
+#: model:ir.ui.menu,name:contract_extra_info.menu_ibred_contract_parent
+msgid "Contracts master data"
+msgstr "Datos generales del contrato"
+
+#. module: contract_extra_info
+#: view:account.analytic.account:contract_extra_info.view_account_analytic_account_form
+msgid ""
+"Create or select a contact. Insert the name of the signer of the contract, "
+"and, al least, thier VAT."
+msgstr ""
+"Crear o seleccionar un contacto existente. Insertar el nombre del firmante "
+"del contrato y, al menos, su NIF/NIE."
+
+#. module: contract_extra_info
+#: view:account.analytic.account:contract_extra_info.view_account_analytic_account_form
+msgid "Data in this sections belongs to notary's act."
+msgstr ""
+"Los datos en esta secion se refieren al empoderamento del notario al "
+"firmante. "
+
+#. module: contract_extra_info
+#: field:account.analytic.account,installation_partner_id:0
+msgid "Installation Address"
+msgstr "Dirección de la instalación"
+
+#. module: contract_extra_info
+#: field:account.analytic.account,notary_name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: contract_extra_info
+#: view:account.analytic.account:contract_extra_info.view_account_analytic_account_form
+msgid "Notarial data"
+msgstr "Datos del empoderamento"
+
+#. module: contract_extra_info
+#: field:res.partner,notary:0
+msgid "Notary"
+msgstr "Nombre del notario"
+
+#. module: contract_extra_info
+#: field:account.analytic.account,notary_date:0
+msgid "Notary's act date"
+msgstr "Fecha de otorgamiento "
+
+#. module: contract_extra_info
+#: model:ir.model,name:contract_extra_info.model_res_partner
+msgid "Partner"
+msgstr "Cliente"
+
+#. module: contract_extra_info
+#: field:account.analytic.account,notary_place:0
+msgid "Place"
+msgstr "Lugar"
+
+#. module: contract_extra_info
+#: field:account.analytic.account,notary_protocol:0
+msgid "Protocol"
+msgstr "Protocolo"
+
+#. module: contract_extra_info
+#: view:account.analytic.account:contract_extra_info.view_account_analytic_account_form
+msgid "Signer"
+msgstr "Firmante"
+
+#. module: contract_extra_info
+#: field:account.analytic.account,signer_partner_id:0
+msgid "Signer's data"
+msgstr "Datos del firmante"
+
+#. module: contract_extra_info
+#: help:res.partner,notary:0
+msgid "check if notary."
+msgstr "selecionar si es un notario"
