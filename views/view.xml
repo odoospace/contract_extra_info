@@ -12,32 +12,32 @@
                 </field>
 
                 <!--
-                    va bene qua?
                 -->
                 <xpath expr="//page[@string='Contract Information']" position="after">
-                  <page name="Sample" string="Contract Extra informations">
-                    
-                    <group  string="Signer" name="contract">
-                            <small>
-                                Create or select a contact. Insert the name of the signer of the contract, and, al least, thier VAT.
-                            </small>
-                        <field name="signer_partner_id" context="{'default_parent_id':partner_id, 'default_customer':False}" options="{'no_quick_create': True, 'no_create_edit': False}"/>
-                        <div>
-                        </div>
-                    </group>
-                        
-                    <separator string="Notarial data" name="description"/>
-                    <group>
-                            <small>
-                                Data in this sections belongs to notary's act.
-                            </small>
-                      <field name="notary_name"/>
-                      <field name="notary_protocol"/>
-                      <field name="notary_date"/>
-                      <field name="notary_place"/>
+                    <page name="Sample" string="Contract Extra informations">
+                       
+                        <group  string="Signer" name="contract">
+                            
+                                <field name="signer_partner_id" context="{'default_parent_id':partner_id, 'default_customer':False}" options="{'no_quick_create': True, 'no_create_edit': False}"/>
+                                <small>
+                            Create or select a contact. Insert the name of the signer of the contract, and, al least, thier VAT.
+                                </small>
+                            
+                        </group>
+                                
+                        <separator string="Notarial data" name="description"/>
+                        <group>
+                            <field name="notary_name"/>
+                                <small>
+                                    Data in this sections belongs to notary's act.
+                                </small>
+                            <br/>
+                            <field name="notary_protocol"/>
+                            <field name="notary_date"/>
+                            <field name="notary_place"/>
 
-                    </group>
-                  </page>
+                        </group>
+                    </page>
                 </xpath>
 
             </field>
