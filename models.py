@@ -7,9 +7,25 @@ class AccountAnalyticAccount_extra_info(models.Model):
     _inherit = 'account.analytic.account'
     # _descripton = 'Analytic Account'
 
+    contract_duration_months = fields.Integer(help ="the contract duracion (in months)")
+    """
+
+    @api.onchange('contract_duration_months')
+    def new_contract_end_date(self):
+        if not self.date_start:
+            self.date_start = fields.date.today()
+        # remembre: date = contract_end_date
+        # self.date = ... 
+        pass
+        date_start_dt = fields.Datetime.from_string(self.date_start)
+        dt = date_start_dt + relativedelta(months=self.contract_duration_months)
+        self.date = fields.Datetime.to_string(dt)
+    """  
+
     installation_partner_id = fields.Many2one('res.partner', 'Installation Address', select=True, domain="[('parent_id','=', partner_id)]")
 
     # Datos del firmante      
+                
     signer_partner_id   = fields.Many2one('res.partner', "Signer's data", select=True)
     #  Cargo = "Puesto de trabajo"  Nombre: Apellidos:  DNI=NIF
 
