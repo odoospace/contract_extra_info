@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from openerp import models, fields, api
+from dateutil.relativedelta import relativedelta
 
 class AccountAnalyticAccount_extra_info(models.Model):
     # _name = 'account.analytic.account'
@@ -8,7 +9,6 @@ class AccountAnalyticAccount_extra_info(models.Model):
     # _descripton = 'Analytic Account'
 
     contract_duration_months = fields.Integer(help ="the contract duracion (in months)")
-    """
 
     @api.onchange('contract_duration_months')
     def new_contract_end_date(self):
@@ -16,10 +16,17 @@ class AccountAnalyticAccount_extra_info(models.Model):
             self.date_start = fields.date.today()
         # remembre: date = contract_end_date
         # self.date = ... 
-        pass
+        
+        # in datetime the start date
         date_start_dt = fields.Datetime.from_string(self.date_start)
+        # fields.Datetime.from_string(fields.Datetime.now())
+        # datetime.datetime(2014, 6, 15, 19, 32, 17)
+        # if now = '2014-06-15' 
         dt = date_start_dt + relativedelta(months=self.contract_duration_months)
         self.date = fields.Datetime.to_string(dt)
+        pass
+    """
+    
     """  
 
     installation_partner_id = fields.Many2one('res.partner', 'Installation Address', select=True, domain="[('parent_id','=', partner_id)]")
