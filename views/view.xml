@@ -21,11 +21,6 @@
                             <field name="contract_duration_months"/>
                 </xpath>
                             
-                <!--
-
-                -->
-
-
 
                 <xpath expr="//page[@string='Contract Information']" position="after">
                     <page name="Sample" string="Contract Extra informations">

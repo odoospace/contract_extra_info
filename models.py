@@ -2,6 +2,7 @@
 
 from openerp import models, fields, api
 from dateutil.relativedelta import relativedelta
+from openerp.exceptions import ValidationError
 
 class AccountAnalyticAccount_extra_info(models.Model):
     # _name = 'account.analytic.account'
@@ -10,24 +11,26 @@ class AccountAnalyticAccount_extra_info(models.Model):
 
     contract_duration_months = fields.Integer(help ="the contract duracion (in months)")
 
+
+    @api.one
+    @api.constrains('contract_duration_months')
+    def _check_positive_and_not_exagerated_duration(self):
+        if self.contract_duration_months <= 0:
+            raise ValidationError("Duration must be a positive value.")
+        
+        if self.contract_duration_months > 121:
+            raise ValidationError("Duration must be a less than 10 years.")
+
+
     @api.onchange('contract_duration_months')
     def new_contract_end_date(self):
         if not self.date_start:
             self.date_start = fields.date.today()
-        # remembre: date = contract_end_date
-        # self.date = ... 
         
-        # in datetime the start date
         date_start_dt = fields.Datetime.from_string(self.date_start)
-        # fields.Datetime.from_string(fields.Datetime.now())
-        # datetime.datetime(2014, 6, 15, 19, 32, 17)
-        # if now = '2014-06-15' 
         dt = date_start_dt + relativedelta(months=self.contract_duration_months)
+        # new date of contract end is set as initial date plus the contract duration
         self.date = fields.Datetime.to_string(dt)
-        pass
-    """
-    
-    """  
 
     installation_partner_id = fields.Many2one('res.partner', 'Installation Address', select=True, domain="[('parent_id','=', partner_id)]")
 
