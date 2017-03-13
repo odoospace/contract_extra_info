@@ -9,26 +9,25 @@ class AccountAnalyticAccount_extra_info(models.Model):
     _inherit = 'account.analytic.account'
     # _descripton = 'Analytic Account'
 
-    contract_duration_months = fields.Integer(help ="the contract duracion (in months)")
-
+    contract_duration_days = fields.Integer(help ="The contract duration (in days)")
 
     @api.one
-    @api.constrains('contract_duration_months')
+    @api.constrains('contract_duration_days')
     def _check_positive_and_not_exagerated_duration(self):
-        if self.contract_duration_months <= 0:
-            raise ValidationError("Duration must be a positive value.")
+        if self.contract_duration_days < 0:
+            raise ValidationError("Duration must be a positive value (or at least zero).")
         
-        if self.contract_duration_months > 121:
+        if self.contract_duration_days > 121:
             raise ValidationError("Duration must be a less than 10 years.")
 
 
-    @api.onchange('contract_duration_months')
-    def new_contract_end_date(self):
+    @api.onchange('contract_duration_days')
+    def calculate_duration(self):
         if not self.date_start:
             self.date_start = fields.date.today()
         
         date_start_dt = fields.Datetime.from_string(self.date_start)
-        dt = date_start_dt + relativedelta(months=self.contract_duration_months)
+        dt = date_start_dt + relativedelta(days=self.contract_duration_days)
         # new date of contract end is set as initial date plus the contract duration
         self.date = fields.Datetime.to_string(dt)
 

@@ -18,7 +18,7 @@
 
                 <xpath expr="//group[@string='Renewal']" position="inside">
 
-                            <field name="contract_duration_months"/>
+                            <field name="contract_duration_days"/>
                 </xpath>
                             
 
